@@ -21,6 +21,7 @@ interface HomeScreenProps {
   onNavigateToScan: () => void;
   onNavigateToReview: (entryId?: number, filter?: 'all' | 'blocking') => void;
   onNavigateToExport: () => void;
+  onOpenAuth?: () => void;
   period?: string;
   onPeriodChange?: (period: string) => void;
 }
@@ -29,6 +30,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   onNavigateToScan,
   onNavigateToReview,
   onNavigateToExport,
+  onOpenAuth,
   period = '2026-11',
   onPeriodChange
 }) => {
@@ -364,13 +366,24 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         >
           <AlertOctagon className="w-8 h-8 text-blocking-text mx-auto" />
           <p className="text-sm font-semibold text-blocking-text">{error}</p>
-          <button
-            type="button"
-            onClick={() => fetchDashboard(selectedPeriod)}
-            className="px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary-hover min-h-[44px] transition-colors"
-          >
-            {t('home.retry')}
-          </button>
+          <div className="flex items-center justify-center gap-2 pt-2">
+            <button
+              type="button"
+              onClick={() => fetchDashboard(selectedPeriod)}
+              className="px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary-hover min-h-[44px] transition-colors"
+            >
+              {t('home.retry')}
+            </button>
+            {onOpenAuth && (
+              <button
+                type="button"
+                onClick={onOpenAuth}
+                className="px-4 py-2 border border-border bg-ground text-ink text-xs font-bold rounded-lg hover:bg-border/40 min-h-[44px] transition-colors"
+              >
+                {language === 'hi' ? 'लॉगिन / खाता बनाएं' : 'Log In / Register'}
+              </button>
+            )}
+          </div>
         </div>
       )}
 

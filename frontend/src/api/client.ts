@@ -118,6 +118,12 @@ async function request<T>(
       message = detail?.message || errorData.message || 'An error occurred';
     }
 
+    if (response.status === 401) {
+      message = 'Please log in or create an account to view your dashboard.';
+    } else if (response.status === 404) {
+      message = 'Backend API not reachable. Please ensure VITE_API_URL is configured in your Render settings.';
+    }
+
     const code = typeof detail === 'object' && !Array.isArray(detail) ? detail?.code : undefined;
     const details = typeof detail === 'object' && !Array.isArray(detail) ? detail?.details : undefined;
 

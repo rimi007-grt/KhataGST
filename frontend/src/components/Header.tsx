@@ -51,15 +51,20 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Right Actions: Profile & Language Toggle */}
         <div className="flex items-center gap-2 shrink-0">
-          {/* User Profile Button */}
-          {user && onOpenProfile && (
+          {/* User Profile / Auth Button */}
+          {onOpenProfile && (
             <button
               type="button"
               onClick={onOpenProfile}
-              aria-label="User Profile"
-              className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-ground/60 text-text-2 transition-colors"
+              aria-label={user ? "User Profile" : "Log in / Register"}
+              className={`flex items-center justify-center rounded-full transition-colors ${
+                user
+                  ? "w-10 h-10 hover:bg-ground/60 text-text-2"
+                  : "h-9 px-3 border border-border bg-ground/50 hover:bg-ground text-primary text-xs font-semibold gap-1.5"
+              }`}
             >
-              <UserCircle className="w-6 h-6 stroke-[1.5]" aria-hidden="true" />
+              <UserCircle className="w-5 h-5 stroke-[1.5]" aria-hidden="true" />
+              {!user && <span>{language === 'hi' ? 'लॉगिन' : 'Log in'}</span>}
             </button>
           )}
 

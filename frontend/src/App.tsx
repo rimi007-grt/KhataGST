@@ -77,6 +77,7 @@ export const AppContent: React.FC = () => {
               onNavigateToScan={() => setActiveTab('scan')}
               onNavigateToReview={handleNavigateToReview}
               onNavigateToExport={() => setActiveTab('export')}
+              onOpenAuth={() => setShowProfile(true)}
             />
           )}
           {activeTab === 'scan' && (
