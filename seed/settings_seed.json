@@ -1,0 +1,22 @@
+{
+  "settings": [
+    {
+      "key": "qrmp_turnover_limit",
+      "value": 50000000,
+      "source_ref": "PLACEHOLDER - Notification 84/2020-CT",
+      "verified": false
+    },
+    {
+      "key": "composition_turnover_limit",
+      "value": 15000000,
+      "source_ref": "PLACEHOLDER - Notification 14/2019-CT",
+      "verified": false
+    },
+    {
+      "key": "composition_tax_rate_trader",
+      "value": 1.0,
+      "source_ref": "PLACEHOLDER - CGST Rules Rule 7",
+      "verified": false
+    }
+  ]
+}

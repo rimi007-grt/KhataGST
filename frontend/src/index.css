@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* KhataGST Design Tokens - Platinum & Mocha Brown (Light Theme Only) */
+  --ground: #E5E4E2;          /* page background (platinum silver) */
+  --surface: #F6F6F5;         /* cards, nav bar */
+  --border: #BDBCBA;
+  --divider: #CBCAC8;
+  --chip-neutral: #D5D4D2;
+  --ink: #2A211C;             /* primary text */
+  --text-2: #3D342E;          /* secondary text */
+  --muted: #5E5650;           /* helper text */
+  --primary: #6F4E37;         /* mocha brown: primary buttons, active states (white text on it) */
+  --primary-deep: #3E2A1D;    /* readiness card background */
+  --nav-pill-bg: #E3D6CB;
+  --nav-pill-text: #4E3424;
+
+  /* HIGHLIGHTER (lavender, used ONLY for "where this value came from" and the readiness arc) */
+  --hl-fill: rgba(176, 160, 235, 0.30);
+  --hl-border: #8576C4;
+  --hl-label-bg: #5B4B9A;     /* (white text) */
+  --hl-arc: #CFC4F0;
+
+  /* SEMANTIC (used ONLY for validation states, always with a text label, never colour alone) */
+  --blocking-bg: #F8DCE0;
+  --blocking-text: #A8182B;
+  --blocking-border: #E3A3AC;
+  --warning-bg: #F3E9B8;
+  --warning-text: #6B5400;
+  --ok-bg: #D6F0E2;
+  --ok-text: #0B5E3A;
+
+  /* UTILITY */
+  --demo-chip-bg: #2B2623;
+  --demo-chip-text: #F5F4F2;
+  --disabled-bg: #D0CFCD;
+  --disabled-text: #4F4943;
+  --on-primary-deep-title: #FFFDF7;
+  --on-primary-deep-body: #E6DDD5;
+  --ring-track: rgba(255, 255, 255, 0.22);
+  --photo-paper: #FFFFFF;
+  --photo-ink: #2B3A55;
+  --photo-rule: #C9D3E6;
+}
+
+body {
+  margin: 0;
+  background-color: var(--ground);
+  color: var(--ink);
+  font-family: 'Inter', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bottom Navigation - Solid surface background, safe-area, no transparency */
+nav[role="navigation"] {
+  background-color: var(--surface) !important;
+  border-top-color: var(--divider) !important;
+}
+
+/* KhataGST Custom Utility Classes - Guaranteed to always load */
+.bg-ground { background-color: var(--ground); }
+.bg-surface { background-color: var(--surface); }
+.border-border { border-color: var(--border); }
+.border-divider { border-color: var(--divider); }
+.bg-chip-neutral { background-color: var(--chip-neutral); }
+.text-ink { color: var(--ink); }
+.text-text-2 { color: var(--text-2); }
+.text-muted { color: var(--muted); }
+.bg-primary { background-color: var(--primary) !important; }
+.text-primary { color: var(--primary); }
+.border-primary { border-color: var(--primary); }
+.bg-primary-deep { background-color: var(--primary-deep); }
+.bg-nav-pill-bg { background-color: var(--nav-pill-bg); }
+.text-nav-pill-text { color: var(--nav-pill-text); }
+
+.bg-hl-fill { background-color: var(--hl-fill); }
+.border-hl-border { border-color: var(--hl-border); }
+.bg-hl-label-bg { background-color: var(--hl-label-bg); }
+
+.bg-blocking-bg { background-color: var(--blocking-bg) !important; }
+.text-blocking-text { color: var(--blocking-text) !important; }
+.border-blocking-border { border-color: var(--blocking-border) !important; }
+
+.bg-warning-bg { background-color: var(--warning-bg) !important; }
+.text-warning-text { color: var(--warning-text) !important; }
+
+.bg-ok-bg { background-color: var(--ok-bg) !important; }
+.text-ok-text { color: var(--ok-text) !important; }
+.border-ok-border { border-color: var(--ok-bg) !important; }
+
+.bg-demo-chip-bg { background-color: var(--demo-chip-bg) !important; }
+.text-demo-chip-text { color: var(--demo-chip-text) !important; }
+
+.bg-disabled-bg { background-color: var(--disabled-bg) !important; }
+.text-disabled-text { color: var(--disabled-text) !important; }
+
+/* Hindi text line-height 1.5 minimum */
+:lang(hi), [lang="hi"] {
+  line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+}
+
+/* Accessible visible focus rings: 2px --primary offset 2px */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Touch targets minimum 44px (buttons 48px) */
+button, a, input, select {
+  min-height: 44px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+

@@ -1,0 +1,16 @@
+{
+  "name": "KhataGST - Digital Register & GST Assistant",
+  "short_name": "KhataGST",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E5E4E2",
+  "theme_color": "#6F4E37",
+  "description": "Deterministic GST validation and paper register extraction assistant for micro-businesses.",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

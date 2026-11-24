@@ -1,0 +1,64 @@
+{
+  "source": "DEMO",
+  "label": "DEMO - Synthetic fixtures for offline development and testing",
+  "page_notes": "DEMO: Two sales invoices from physical paper register",
+  "entries": [
+    {
+      "invoice_no": "DEMO-INV-001",
+      "invoice_date": "2026-11-05",
+      "party_name": "DEMO - Gupta Kirana Store",
+      "party_gstin": "27AABCG1234F1Z8",
+      "hsn_or_category": "1101",
+      "description": "Wheat flour 50kg bags",
+      "taxable_value": 5000.00,
+      "tax_rate": 5.0,
+      "cgst": 125.00,
+      "sgst": 125.00,
+      "igst": 0.00,
+      "total": 5250.00,
+      "field_confidence": {
+        "invoice_no": 0.98,
+        "invoice_date": 0.95,
+        "party_name": 0.92,
+        "party_gstin": 0.96,
+        "hsn_or_category": 0.90,
+        "description": 0.88,
+        "taxable_value": 0.99,
+        "tax_rate": 0.99,
+        "cgst": 0.95,
+        "sgst": 0.95,
+        "igst": 1.00,
+        "total": 0.99
+      }
+    },
+    {
+      "invoice_no": "DEMO-INV-002",
+      "invoice_date": "2026-11-10",
+      "party_name": "DEMO - Rajasthan Bakery",
+      "party_gstin": "08AABCR5678D1Z2",
+      "hsn_or_category": "1905",
+      "description": "Biscuits and cookies carton",
+      "taxable_value": 10000.00,
+      "tax_rate": 18.0,
+      "cgst": 0.00,
+      "sgst": 0.00,
+      "igst": 1800.00,
+      "total": 11800.00,
+      "field_confidence": {
+        "invoice_no": 0.94,
+        "invoice_date": 0.91,
+        "party_name": 0.89,
+        "party_gstin": 0.92,
+        "hsn_or_category": 0.87,
+        "description": 0.85,
+        "taxable_value": 0.96,
+        "tax_rate": 0.98,
+        "cgst": 1.00,
+        "sgst": 1.00,
+        "igst": 0.94,
+        "total": 0.97
+      }
+    }
+  ]
+}
+

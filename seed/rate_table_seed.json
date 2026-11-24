@@ -1,0 +1,50 @@
+{
+  "rate_table_version": "2023-10-01",
+  "rates": [
+    {
+      "hsn_or_category": "1101",
+      "description": "Wheat flour / Atta (packaged)",
+      "rate": 5.0,
+      "effective_from": "2022-07-18",
+      "effective_to": null,
+      "source_ref": "CBIC Notification 01/2017-CT(Rate) Sch I (entry 54)",
+      "verified": true
+    },
+    {
+      "hsn_or_category": "1905",
+      "description": "Biscuits and bakery items",
+      "rate": 18.0,
+      "effective_from": "2017-07-01",
+      "effective_to": null,
+      "source_ref": "CBIC Notification 01/2017-CT(Rate) Sch III (entry 16)",
+      "verified": true
+    },
+    {
+      "hsn_or_category": "4820",
+      "description": "Notebooks and registers",
+      "rate": 12.0,
+      "effective_from": "2017-07-01",
+      "effective_to": null,
+      "source_ref": "CBIC Notification 01/2017-CT(Rate) Sch II (entry 123)",
+      "verified": true
+    },
+    {
+      "hsn_or_category": "9988",
+      "description": "Tailoring job work services",
+      "rate": 5.0,
+      "effective_from": "2017-07-01",
+      "effective_to": null,
+      "source_ref": "CBIC Notification 11/2017-CT(Rate) Heading 9988",
+      "verified": true
+    },
+    {
+      "hsn_or_category": "9999",
+      "description": "Unspecified General Goods / Services (Draft)",
+      "rate": 18.0,
+      "effective_from": "2017-07-01",
+      "effective_to": null,
+      "source_ref": "DRAFT - Unverified schedule row",
+      "verified": false
+    }
+  ]
+}

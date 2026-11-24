@@ -1,0 +1,36 @@
+{
+  "deadlines": [
+    {
+      "return_type": "GSTR-1",
+      "due_date": "2026-12-11",
+      "period": "2026-11",
+      "scheme": "REGULAR",
+      "source_ref": "CBIC Notification 83/2020-CT (Placeholder draft schedule)",
+      "verified": false
+    },
+    {
+      "return_type": "GSTR-3B",
+      "due_date": "2026-12-20",
+      "period": "2026-11",
+      "scheme": "REGULAR",
+      "source_ref": "CBIC Notification 82/2020-CT (Placeholder draft schedule)",
+      "verified": false
+    },
+    {
+      "return_type": "CMP-08",
+      "due_date": "2027-01-18",
+      "period": "2026-11",
+      "scheme": "COMPOSITION",
+      "source_ref": "CBIC Notification 21/2019-CT (Placeholder draft schedule)",
+      "verified": false
+    },
+    {
+      "return_type": "IFF",
+      "due_date": "2026-12-13",
+      "period": "2026-11",
+      "scheme": "QRMP",
+      "source_ref": "CBIC Notification 84/2020-CT (Placeholder draft schedule)",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+# KhataGST Local Offline Multi-Container Stack (docker-compose.yml)
+# Runs 100% offline with local Postgres, mock extraction provider, and nginx PWA frontend.
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: khatagst-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-khatagst}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-khatagst_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-khatagst}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-khatagst} -d ${POSTGRES_DB:-khatagst}"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: khatagst-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ENVIRONMENT: development
+      LOG_LEVEL: INFO
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-khatagst}:${POSTGRES_PASSWORD:-khatagst_dev_password}@db:5432/${POSTGRES_DB:-khatagst}
+      JWT_SECRET: ${JWT_SECRET:-khatagst-local-offline-secret-key-2026}
+      JWT_ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      EXTRACTION_PROVIDER: ${EXTRACTION_PROVIDER:-mock}
+      STORAGE_MODE: temp
+      MAX_UPLOAD_SIZE_BYTES: 8388608
+      ALLOWED_ORIGIN: http://localhost:3000,http://localhost:5173,http://localhost
+    ports:
+      - "8000:8000"
+    command: sh -c "python scripts/migrate.py && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: khatagst-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+
+volumes:
+  pgdata:

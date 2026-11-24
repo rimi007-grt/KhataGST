@@ -1,0 +1,25 @@
+{
+  "R01_INVALID_FORMAT": "GSTIN must be 15 alphanumeric characters matching standard GST format.",
+  "R01_INVALID_STATE": "State code '{state_code}' in GSTIN is invalid (must be 01-38, 97, or 99).",
+  "R01_INVALID_CHECKSUM": "The GSTIN check digit doesn't match. Re-check the number on the bill.",
+  "R02_TAX_MISMATCH": "Calculated tax Rs {expected} does not match total tax Rs {actual} (tolerance Rs 1.00).",
+  "R02_TOTAL_MISMATCH": "Calculated total Rs {expected} does not match invoice total Rs {actual} (tolerance Rs 1.00).",
+  "R03_INTRA_STATE_IGST": "Intra-state supply (same state {state}) cannot charge IGST. Must charge CGST + SGST.",
+  "R03_INTER_STATE_CGST_SGST": "Inter-state supply (business state {business_state} to party state {party_state}) cannot charge CGST/SGST. Must charge IGST.",
+  "R04_RATE_MISMATCH": "Tax rate {actual}% does not match HSN {hsn} (expected {expected}% as per rate table).",
+  "R04_UNVERIFIED_RATE": "Rate looks consistent with the draft table, but the table is not verified. Confirm the rate.",
+  "R04_HSN_NOT_FOUND": "HSN / category '{hsn}' not found in official rate table.",
+  "R05_DUPLICATE_INVOICE_NO": "Duplicate invoice number '{invoice_no}' already exists for GSTIN {party_gstin}.",
+  "R05_DUPLICATE_TRANSACTION": "Duplicate transaction detected for party '{party_name}' on date {invoice_date} with total Rs {total}.",
+  "R06_FUTURE_DATE": "Invoice date {invoice_date} is in the future (current date {current_date}).",
+  "R06_OUTSIDE_PERIOD": "Invoice date {invoice_date} is outside the selected return period {period}.",
+  "R07_MISSING_GSTIN": "B2B supply is missing mandatory recipient GSTIN.",
+  "R07_MISSING_INVOICE_NO": "Invoice number is mandatory but missing.",
+  "R07_MISSING_DATE": "Invoice date is mandatory but missing.",
+  "R08_SEPARATE_TAX": "Composition scheme dealers cannot charge separate tax on invoices.",
+  "R08_INTER_STATE": "Composition scheme dealers cannot make inter-state outward supplies.",
+  "R09_ZERO_OR_NEGATIVE": "Entry has zero or negative taxable value or total amount.",
+  "R09_OUTLIER_AMOUNT": "High transaction value of Rs {amount} detected for micro-business threshold.",
+  "R10_NEARING_LIMIT": "Cumulative turnover Rs {turnover} has reached {pct}% of {scheme} scheme limit Rs {limit}."
+}
+
