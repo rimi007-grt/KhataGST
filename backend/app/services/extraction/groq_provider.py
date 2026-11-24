@@ -67,6 +67,7 @@ class GroqExtractionProvider(BaseExtractionProvider):
                         }
                     ],
                     response_format={"type": "json_object"},
+                    max_tokens=850,
                     temperature=0.1,
                     timeout=20.0
                 )
