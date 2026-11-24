@@ -27,7 +27,11 @@ class Settings(BaseSettings):
 
     # CORS - allow only ALLOWED_ORIGIN in production
     ALLOWED_ORIGIN: Optional[str] = None
-    CORS_ORIGINS: Union[List[str], str] = ["http://localhost:5173", "http://localhost:3000"]
+    CORS_ORIGINS: Union[List[str], str] = [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://khatagst-ui.onrender.com"
+    ]
 
     # Extraction settings
     EXTRACTION_PROVIDER: str = "mock"  # "mock", "gemini", or "groq"
@@ -65,7 +69,10 @@ class Settings(BaseSettings):
         # If ALLOWED_ORIGIN env var is set, prioritize it
         allowed = os.getenv("ALLOWED_ORIGIN")
         if allowed:
-            return [o.strip() for o in allowed.split(",") if o.strip()]
+            res = [o.strip() for o in allowed.split(",") if o.strip()]
+            if "https://khatagst-ui.onrender.com" not in res:
+                res.append("https://khatagst-ui.onrender.com")
+            return res
 
         if isinstance(v, str):
             if v.startswith("[") and v.endswith("]"):
@@ -73,10 +80,16 @@ class Settings(BaseSettings):
                     return json.loads(v)
                 except Exception:
                     pass
-            return [i.strip() for i in v.split(",") if i.strip()]
+            res = [i.strip() for i in v.split(",") if i.strip()]
+            if "https://khatagst-ui.onrender.com" not in res:
+                res.append("https://khatagst-ui.onrender.com")
+            return res
         elif isinstance(v, list):
-            return v
-        return ["http://localhost:5173", "http://localhost:3000"]
+            res = list(v)
+            if "https://khatagst-ui.onrender.com" not in res:
+                res.append("https://khatagst-ui.onrender.com")
+            return res
+        return ["http://localhost:5173", "http://localhost:3000", "https://khatagst-ui.onrender.com"]
 
     def get_jwt_secret(self) -> str:
         """Returns JWT_SECRET or fallback JWT_SECRET_KEY."""

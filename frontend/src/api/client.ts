@@ -17,7 +17,9 @@ import {
 const envApiUrl = (((import.meta as any)?.env?.VITE_API_URL) as string | undefined)?.trim();
 export const BASE_URL = envApiUrl
   ? (envApiUrl.endsWith('/api/v1') ? envApiUrl : `${envApiUrl.replace(/\/+$/, '')}/api/v1`)
-  : '/api/v1';
+  : (typeof window !== 'undefined' && window.location.hostname.includes('onrender.com')
+      ? 'https://khatagst-g9jf.onrender.com/api/v1'
+      : '/api/v1');
 
 type ColdStartListener = (isColdStarting: boolean) => void;
 const coldStartListeners = new Set<ColdStartListener>();
